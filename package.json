@@ -1,0 +1,28 @@
+{
+  "name": "git-hooks",
+  "version": "1.0.0",
+  "description": "A git-hooks primer",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-emabishi/git-hooks.git"
+  },
+  "keywords": [
+    "mocha",
+    "chai",
+    "expect"
+  ],
+  "author": "Elizabeth Mabishi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-emabishi/git-hooks/issues"
+  },
+  "homepage": "https://github.com/andela-emabishi/git-hooks#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
