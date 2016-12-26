@@ -1,9 +1,16 @@
-#!/usr/bin/env sh
+!/bin/sh
+#
+# num_of_failures=`mocha -R json | grep failures -m 1 | awk '{print $2}' | sed 's/[,]/''/'`
+#
+# if [ $num_of_failures != '0' ]; then
+#   echo "$num_of_failures tests have failed. You cannot commit until all tests pass.
+#         Commit exiting with a non-zero status."
+#   exit 1
+# fi
 
-num_of_failures=`mocha -R json | grep failures -m 1 | awk '{print $2}' | sed 's/[,]/''/'`
-
-if [ $num_of_failures != '0' ]; then
-  echo "$num_of_failures tests have failed. You cannot commit until all tests pass.
-        Commit exiting with a non-zero status."
+errors=`jscs -r inline ./test/test.js`
+num_of_linting_errors=`jscs -r junit ./test/test.js | grep failures -m 1 | awk '{print $4}' | sed 's/failures=/''/' | sed s/">"/''/ | sed s/\"/''/ | sed s/\"/''/`
+if [ $num_of_linting_errors !=  '0' ]; then
+  echo "Linting errors present. $errors"
   exit 1
 fi

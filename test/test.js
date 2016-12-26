@@ -8,5 +8,8 @@ describe('Test hasVowels', () => {
   });
   it('should return true if the string has vowels', () => {
     expect('No vowels'.hasVowels()).to.equal(true);
+
+    // Introduce failing test
+    // expect('Has vowels'.hasVowels()).to.equal(false);
   });
 });

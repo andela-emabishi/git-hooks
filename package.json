@@ -23,6 +23,7 @@
   "homepage": "https://github.com/andela-emabishi/git-hooks#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "jscs": "^3.0.7",
     "mocha": "^3.2.0"
   }
 }
