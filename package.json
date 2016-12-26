@@ -4,7 +4,7 @@
   "description": "A git-hooks primer",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

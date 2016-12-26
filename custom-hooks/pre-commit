@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+num_of_failures=`mocha -R json | grep failures -m 1 | awk '{print $2}' | sed 's/[,]/''/'`
+
+if [ $num_of_failures != '0' ]; then
+  echo "$num_of_failures tests have failed. You cannot commit until all tests pass.
+        Commit exiting with a non-zero status."
+  exit 1
+fi
