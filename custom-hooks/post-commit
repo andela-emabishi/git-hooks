@@ -1,0 +1,3 @@
+#!/bin/bash
+
+say Congratulations! You\'ve just made a commit!
