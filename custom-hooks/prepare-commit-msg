@@ -3,6 +3,6 @@
 # Result will be output in place of the default commit message on running git commit
 
 current_branch=`git rev-parse --abbrev-ref HEAD`
-echo " $current_branch
-      # Commit messages should be of the form '[#StoryID:CommitType]Commit Message'
-        Use '[#135316555:Feature]Create Kafka Audit Trail' for reference" > $1
+
+echo "#$current_branch Commit messages should be of the form [#StoryID:CommitType]Commit Message
+        Use [#135316555:Feature]Create Kafka Audit Trail for reference" > $1
