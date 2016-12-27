@@ -1,24 +1,30 @@
 #!/bin/bash
 
-# Executed immediately after a git checkout or after a git clone
+# Executed immediately after a git checkout
 repository_name=`basename `git rev-parse --show-toplevel``
-current_branch=`git branch | grep -o '\*.*' | sed s/*/''/ | sed s/' '/''/`
+current_branch=`git rev-parse --abbrev-ref HEAD`
 
-echo "Stashing changes made before pulling remote branch"
+echo "Stashing changes previously made before pulling remote branch"
 git stash
 
-echo "Pulling remote branch"
+echo
+
+echo "Pulling remote branch ....."
 git pull origin $current_branch
 
-echo "Installing nodeJS depndencies"
+echo
+
+echo "Installing nodeJS dependencies ....."
 npm install
 
-echo "Installing yarn paackage"
-npm install yarn -g
-echo "Yarning dependencies"
+echo
+
+echo "Installing yarn package ....."
+npm install yarn
+echo "Yarning dependencies ......"
 yarn
 
-echo "Installing python depndencies"
-mkvirtualenv $repository_name
-workon $repository_name
+echo
+
+echo "Installing python dependencies"
 pip install -r requirements.txt
