@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Validates whether commit message is of a certain format.
+# Aborts commit if message is unsatisfactory
+
+# Standard commit from Pivotal Tracker [#135316555:Feature]Create Kafka Audit Trail
+# Regex will match [#135316555:Feature]Create
+commit_standard_regex='^[#[0-9]{11,}:[a-z]{5,}][a-z].{10,}|Merge'
+error_message="Aboting commit. Please ensure your commit message meets the
+               standard requirement. '[#StoryID:CommitType]Commit Message'
+              Use '[#135316555:Feature]Create Kafka Audit Trail' for reference"
+
+
+if ! grep -iqE "$commit_standard_regex" "$1"; then
+    echo "$error_message"
+    exit 1
+fi
