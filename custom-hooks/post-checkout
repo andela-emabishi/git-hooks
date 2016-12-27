@@ -33,8 +33,8 @@ if [ $present_working_directory == $repository_name ] && [ $requirements == 'req
   echo "Creating virtualenvironments for project ......."
   source `which virtualenv`
   echo
-  mkvirtualenv $repository_name
-  workon $repository_name
+  mkvirtualenv $repository_name/$current_branch
+  workon $repository_name/$current_branch
   echo "Installing python dependencies ......."
   pip install -r requirements.txt
 fi
