@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 current_branch=`git branch | grep -o '\*.*' | sed s/*/''/ | sed s/' '/''/`
 
