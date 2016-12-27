@@ -2,8 +2,8 @@
 
 current_branch=`git branch | grep -o '\*.*' | sed s/*/''/ | sed s/' '/''/`
 
-if [ $current_branch == "master" ]; then
-  echo "Cannot rebase on master. Please checkout to another branch.
-        Aborting rebase."
+if [ $current_branch == "master" ] && [ $1 == "master" ]; then
+  echo "Cannot perform a rebase on the master branch.
+        Please checkout to another branch. Aborting rebase."
   exit 1
 fi
