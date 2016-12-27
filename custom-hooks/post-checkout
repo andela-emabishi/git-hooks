@@ -3,6 +3,8 @@
 # Executed immediately after a git checkout
 repository_name=`basename `git rev-parse --show-toplevel``
 current_branch=`git rev-parse --abbrev-ref HEAD`
+present_working_directory=`pwd`
+requirements=`ls | grep 'requirements.txt' `
 
 echo "Stashing changes previously made before pulling remote branch"
 git stash
@@ -26,5 +28,13 @@ yarn
 
 echo
 
-echo "Installing python dependencies"
-pip install -r requirements.txt
+# Only do this if you find a requirements.txt file at the root of the project
+if [ $present_working_directory == $repository_name ] && [ $requirements == 'requirements.txt']; then
+  echo "Creating virtualenvironments for project ......."
+  source `which virtualenv`
+  echo
+  mkvirtualenv $repository_name
+  workon $repository_name
+  echo "Installing python dependencies ......."
+  pip install -r requirements.txt
+fi
