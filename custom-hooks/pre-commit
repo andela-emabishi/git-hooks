@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Exits with non zero status if tests fail or linting errors exist
 num_of_failures=`mocha -R json | grep failures -m 1 | awk '{print $2}' | sed 's/[,]/''/'`

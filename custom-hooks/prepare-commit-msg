@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Result will be output in place of the default commit message on running git commit
+
+echo "# Commit messages should be of the form '[#StoryID:CommitType]Commit Message'
+        Use '[#135316555:Feature]Create Kafka Audit Trail' for reference" > $1
