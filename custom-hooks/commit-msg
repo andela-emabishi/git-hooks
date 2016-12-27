@@ -4,7 +4,6 @@
 # Aborts commit if message is unsatisfactory
 
 # Standard commit from Pivotal Tracker [#135316555:Feature]Create Kafka Audit Trail
-# Regex will match [#135316555:Feature]Create
 commit_standard_regex='^[#[0-9]{11,}:[a-z]{5,}][a-z].{10,}|Merge'
 error_message="Aboting commit. Please ensure your commit message meets the
                standard requirement. '[#StoryID:CommitType]Commit Message'
