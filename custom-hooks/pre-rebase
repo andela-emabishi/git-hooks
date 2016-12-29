@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Dangerous to perform rebase. Aborting rebase."
+exit 1
+
 # current_branch=`git branch | grep -o '\*.*' | sed s/*/''/ | sed s/' '/''/`
 #
 # if [ $current_branch == "master" ] && [ $1 == "master" ]; then
@@ -8,10 +11,9 @@
 #   exit 1
 # fi
 
-echo "Dangerous to perform rebase. Aborting rebase."
-exit 1
 
-if [ $1 == "master"] || [ $2 == "master"]; then
-  echo "Cannot perform rebase on master. Aborting rebase."
-  exit 1
-fi
+# if [ $1 == "master"] || [ $2 == "master"]; then
+#   echo "Cannot perform rebase on master. Aborting rebase."
+#   exit 1
+# fi
+c
