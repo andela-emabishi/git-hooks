@@ -4,22 +4,13 @@
 # Aborts commit if message is unsatisfactory
 
 # Standard commit from Pivotal Tracker [#135316555:Feature]Create Kafka Audit Trail
-# commit_standard_regex='^[#[0-9]{11,}:[a-z]{5,}][a-z].{10,}|Merge'
-# error_message="Aborting commit. Please ensure your commit message meets the
-#                standard requirement. '[#StoryID:CommitType]Commit Message'
-#               Use '[#135316555:Feature]Create Kafka Audit Trail' for reference"
-#
-#
-# if ! grep -iqE "$commit_standard_regex" "$1"; then
-#     echo "$error_message" >&2
-#     exit 1
-# fi
+commit_standard_regex='\[#[0-9]{9,}:[a-z]{3,}\]:[a-z].+|merge'
+error_message="Aborting commit. Please ensure your commit message meets the
+               standard requirement. '[#StoryID:CommitType]Commit Message'
+              Use '[#135316555:Feature]Create Kafka Audit Trail' for reference"
 
 
-commit_regex='(wap-[0-9]+|merge)'
-error_msg="Aborting commit. Your commit message is missing either a JIRA Issue ('WAP-1111') or 'Merge'"
-
-if ! grep -iqE "$commit_regex" "$1"; then
-    echo "$error_msg" >&2
+if ! grep -iqE "$commit_standard_regex" "$1"; then
+    echo "$error_message" >&2
     exit 1
 fi
